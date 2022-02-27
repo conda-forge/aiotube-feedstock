@@ -1,5 +1,5 @@
 {% set name = "aiotube" %}
-{% set version = "1.5.1" %}
+{% set version = "1.5.2" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/aiotube-{{ version }}.tar.gz
-  sha256: 403a87575de75cb45c9138b9759f96dc5f89b78f18166f4b8b26f918a8a22ce1
+  sha256: d1649fefc2cc15b26fe7d9f008984d3d27b304db43db2e1f2ac27710df97eaf8
 
 build:
   number: 0
