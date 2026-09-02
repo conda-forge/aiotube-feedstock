@@ -1,0 +1,53 @@
+schema_version: 1
+
+context:
+  name: aiotube
+  version: "1.7.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/aiotube-${{ version }}.tar.gz
+  sha256: 398201e751323d690f600ca6493ddbedceda3864b22f4177dc69b80d29cd9e8a
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - pytube
+    - urllib3
+    - requests
+
+tests:
+  - python:
+      imports:
+        - aiotube
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: AioTube is a package created to power the user with YouTube Public Data functionality without YouTube Data API v3
+  description: |
+    All in one Tube is a package created to power the user with YouTube
+    Data API functionality without API Key
+  homepage: https://github.com/jnsougata/AioTube
+  repository: https://github.com/jnsougata/AioTube
+  documentation: https://github.com/jnsougata/AioTube
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
